@@ -1,6 +1,6 @@
-import { Items } from './items';
-import { Sorting } from './sorting';
-import { Genre } from './genre';
+import { Items } from './Items';
+import { Sorting } from './Sorting';
+import { Genre } from './Genre';
 import '../css/content.css';
 
 /** TODO: can be dropped */

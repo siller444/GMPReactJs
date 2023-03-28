@@ -1,4 +1,4 @@
-import { Dropdown } from './dropdown';
+import { Dropdown } from './Dropdown';
 
 export const Sorting = ({ data }) => {
     return (

@@ -1,5 +1,5 @@
-import Search from './search';
-import {Counter} from './counter';
+import Search from './Search';
+// import {Counter} from './Counter';
 import '../css/header.css';
 
 export function Header() {
@@ -20,7 +20,7 @@ export function Header() {
           <div>FIND YOUR MOViE</div>
         </div>
         <Search initQuery='' onSearch={(query) => console.log('onSearch', query)} />
-        <Counter startFrom={3} />
+        {/* <Counter startFrom={3} /> */}
       </header>
     );
 }
