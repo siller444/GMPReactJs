@@ -4,29 +4,14 @@ import '../css/search.css';
 export default function Search({ onSearch, initQuery = '', placeholderText = 'What do you want to watch?' }) {
     const [query, setQuery] = useState(initQuery);
 
-    const search = (query) => {
-        if (!query) return;
-        onSearch(query);
-        setQuery('');
-    }
+    const onSearchHandler = event => {
+        event.preventDefault();
 
-    const searchHandler = (e) => {
-        switch(e.type) {
-            case 'keydown':
-                if (e.key === 'Enter') {
-                    search(e.target.value);
-                }
-                break;
-            case 'click':
-                search(document.querySelector('input.search-input').value);
-                break;
-            default:
+        if (event.key === 'Enter' || event.type === 'click') {
+            onSearch(query);
+            setQuery('');
         }
     };
-
-    function changeHandler(e) {
-        setQuery(e.target.value);
-    }
 
     return (
         <div className="search-box">
@@ -38,12 +23,12 @@ export default function Search({ onSearch, initQuery = '', placeholderText = 'Wh
                         type="text"
                         value={query}
                         placeholder={placeholderText}
-                        onKeyDown={searchHandler}
-                        onChange={changeHandler}
+                        onKeyDown={onSearchHandler}
+                        onChange={e => setQuery(e.target.value)}
                     ></input>
                 </div>
                 {/* search button */}
-                <div className="btn btn-submit btn-search" onClick={searchHandler} role="button">
+                <div className="btn btn-submit btn-search" onClick={onSearchHandler} role="button">
                     <div>Search</div>
                 </div>
             </div>
